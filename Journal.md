@@ -9,3 +9,6 @@ The context is the central state holding object, it holds reference to currentSt
 
 Phase 3-
 This demonstrates the Open/Close by creating new state objects for actions without modifying existing state objects. I modified only the SentialGuard only because I hardcode the starting start if I have it passed in at runtime I wouldn't had to, I would have only needed to create the new state class.
+
+Phase 4-
+The state pattern makes phase 1 feel long winded, The state pattern allows adding and removing states with little to no modification to the other objects. Passing the objects on return and just calling the methods on the currentState object removed the conditionals and made the code less prone to user error. For me it made the logic flow easier.
