@@ -5,8 +5,8 @@ public class SentinelGuard {
     //f
     private GuardState currentState;
     //c
-    SentinelGuard(){
-        currentState = new IdleState();
+    SentinelGuard(GuardState state){
+        this.currentState = state;
     }
     //m
     public void hearNoise(){

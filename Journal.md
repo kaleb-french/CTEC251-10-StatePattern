@@ -6,3 +6,6 @@ Honestly I have written little stateMachines like this before, although hearing 
 
 Phase 2-
 The context is the central state holding object, it holds reference to currentState and delegates actions to the state objects bound by interface contract. It is less prone to user error, and allows you to add and remove states more easily.
+
+Phase 3-
+This demonstrates the Open/Close by creating new state objects for actions without modifying existing state objects. I modified only the SentialGuard only because I hardcode the starting start if I have it passed in at runtime I wouldn't had to, I would have only needed to create the new state class.
