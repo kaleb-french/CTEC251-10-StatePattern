@@ -3,58 +3,19 @@ public class SentinelGuard {
        Idle, Patroling, Attacking
     }
     //f
-    private State currentState;
+    private GuardState currentState;
     //c
     SentinelGuard(){
-        currentState = State.Idle;
+        currentState = new IdleState();
     }
     //m
     public void hearNoise(){
-        switch (currentState) {
-            case Idle:
-                System.out.println("Guard is investigating!");
-                currentState = State.Patroling;
-                break;
-            case Patroling:
-                System.out.println("Guard is already on alert!");
-                currentState = State.Patroling;
-                break;
-            case Attacking:
-                System.out.println("Guard is too busy atticking!");
-                currentState = State.Attacking;
-                break;
-        }
+        currentState = currentState.hearNoise();
     }
     public void seeEnemy(){
-        switch (currentState) {
-            case Idle:
-                System.out.println("Guard Has Spotted Enemy");
-                currentState = State.Attacking;
-                break;
-            case Patroling:
-                System.out.println("Guard Has Spotted Enemy");
-                currentState = State.Attacking;
-                break;
-            case Attacking:
-                System.out.println("Guard Has Spotted Enemy");
-                currentState = State.Attacking;
-                break;
-        }
+        currentState = currentState.seeEnemy();
     }
     public void loseTarget(){
-        switch (currentState) {
-            case Idle:
-                System.out.println("No Target to lose");
-                currentState = State.Idle;
-                break;
-            case Patroling:
-                System.out.println("No Target to lose");
-                currentState = State.Patroling;
-                break;
-            case Attacking:
-                System.out.println("Guard is searching for the escaped enemy!");
-                currentState = State.Patroling;
-                break;
-        }
+        currentState = currentState.loseTarget();
     }
 }
